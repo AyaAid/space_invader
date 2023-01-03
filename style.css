@@ -15,6 +15,16 @@ img {
     display: flex;
     flex-wrap: wrap;
     background-image: url("assets/background-black.png");
+    animation: background-defile 2s linear infinite;
+}
+
+@keyframes background-defile {
+    from {
+        background-position-y: 0px;
+    }
+    to {
+        background-position-y: 256px;
+    }
 }
 
 #grade div {
