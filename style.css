@@ -18,5 +18,15 @@ img {
 #grade div {
     width: 30px;
     height: 30px;
-    box-shadow: 1px 1px black;
+    position: relative;
+}
+
+.jogador {
+    background: url("assets/vaisseau.png") no-repeat;
+    background-size: contain;
+}
+
+.invasor {
+    background: url("assets/ennemies.png") no-repeat;
+    background-size: contain;
 }
