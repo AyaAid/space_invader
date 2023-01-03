@@ -93,12 +93,12 @@ function happyDance() {
     });
 
     if (ennemy[ennemy.length -1] > board.length - 16) {
-        alert("Perdu ! test");
+        alert("Perdu !");
         clearInterval(ennemyId);
     }
 
     if (board[pos_ship].classList.contains("ennemy")) {
-        alert("Perdu ! test");
+        alert("Perdu !");
         board[pos_ship].classList.add("boum");
         clearInterval(ennemyId);
     }
