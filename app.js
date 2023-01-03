@@ -1,40 +1,47 @@
 const grade = document.getElementById("grade");
-const pontuacao = document.getElementById("pontuacao");
-var compteur = 0;
+const game = document.getElementById("game");
 
 for(let i = 0; i < 320; i++) {
-    let quadrado = document.createElement("div");
-    grade.appendChild(quadrado);
-    compteur ++
-    if(compteur === 0){
-        const debut = div.getAttribut("debut");
-    }
-    else if(compteur === 20){
-        const fin = div.getAttribut("fin");
-        compteur = 0
-    }
+    let board = document.createElement("div");
+    grade.appendChild(board);
 }
 
-const quadrados = document.querySelectorAll("#grade div");
-const invasores = [
+const board = document.querySelectorAll("#grade div");
+const ennemy = [
     2,3,4,5,6,7,8,9,10,11,12,13,
     18,19,20,21,22,23,24,25,26,27,28,29,
     34,35,36,37,38,39,40,41,42,43,44,45
 ];
 
-let posicaoJogador = 280;
+let pos_ship = 280;
 let invasoresId;
 
-quadrados[posicaoJogador].classList.add("jogador")
+board[pos_ship].classList.add("ship");
 
-invasores.forEach(invasor => {
-    quadrados[invasor].classList.add("invasor");
+ennemy.forEach(ennemy => {
+    board[ennemy].classList.add("ennemy");
 });
 
-document.addEventListener("keydown", moverJogador);
-invasoresId = setInterval(moverInvasores, 300);
-document.addEventListener("keyup", atirar);
 
-function happyDance(){
-    
+
+function tir(){
+    let pos = pos_ship;
+    let tir = setInterval(() => {
+        board[pos].classList.remove("tir");
+        pos -= 16;
+        board[pos].classList.add("tir");
+        if(board[pos].classList.contains("ennemy")){
+            board[pos].classList.remove("tir");
+            board[pos].classList.remove("ennemy");
+            board[pos].classList.add("boom");
+            clearInterval(tir);
+            setTimeout(() => board[pos].classList.remove("boom"), 400);
+        }
+    }, 100);
 }
+
+document.addEventListener("keydown", (e) => {
+    if(e.keyCode === 32){
+        tir();
+    }
+});

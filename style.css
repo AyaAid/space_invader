@@ -21,12 +21,22 @@ img {
     position: relative;
 }
 
-.jogador {
+.ship {
     background: url("assets/vaisseau.png") no-repeat;
     background-size: contain;
 }
 
-.invasor {
+.ennemy {
     background: url("assets/ennemies.png") no-repeat;
+    background-size: contain;
+}
+
+.tir {
+    background: url("assets/laser.jpeg") no-repeat;
+    background-size: contain;
+}
+
+.boom {
+    background: url("assets/boom.gif") no-repeat;
     background-size: contain;
 }
