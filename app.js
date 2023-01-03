@@ -1,9 +1,18 @@
 const grade = document.getElementById("grade");
 const pontuacao = document.getElementById("pontuacao");
+var compteur = 0;
 
 for(let i = 0; i < 320; i++) {
     let quadrado = document.createElement("div");
     grade.appendChild(quadrado);
+    compteur ++
+    if(compteur === 0){
+        const debut = div.getAttribut("debut");
+    }
+    else if(compteur === 20){
+        const fin = div.getAttribut("fin");
+        compteur = 0
+    }
 }
 
 const quadrados = document.querySelectorAll("#grade div");
@@ -25,3 +34,7 @@ invasores.forEach(invasor => {
 document.addEventListener("keydown", moverJogador);
 invasoresId = setInterval(moverInvasores, 300);
 document.addEventListener("keyup", atirar);
+
+function happyDance(){
+    
+}
