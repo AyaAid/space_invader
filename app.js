@@ -24,6 +24,8 @@ for (let i=0; i<46; i++) {
         }
     }
 }
+
+let size = 16;
 let pos_ship = 280;
 let invasoresId;
 
@@ -56,3 +58,23 @@ document.addEventListener("keydown", (e) => {
         tir();
     }
 });
+
+
+
+document.addEventListener("keydown", moverShip);
+
+function moverShip(e) {
+    board[pos_ship].classList.remove("ship");
+
+    if(e.keyCode == 37) { // Deplacement Gauche
+        if(pos_ship % size != 0) {
+            pos_ship--;
+        }
+    } else if (e.keyCode == 39) { // Deplacement Droite
+        if (pos_ship % size != size -1) {
+            pos_ship++;
+        }
+    }
+
+    board[pos_ship].classList.add("ship");
+}
