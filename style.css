@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-image: "assets/background-black.png";
 }
 
 img {
@@ -13,16 +14,19 @@ img {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    background-image: url("assets/background-black.png");
 }
 
 #grade div {
     width: 28px;
     height: 22px;
     position: relative;
+    
+    
 }
 
 .ship {
-    background: url("assets/vaisseau.png") no-repeat;
+    background: url("assets/spaceship.png") no-repeat;
     background-size: contain;
 }
 
@@ -32,7 +36,7 @@ img {
 }
 
 .tir {
-    background: url("assets/laser.jpeg") no-repeat;
+    background: url("assets/shoot.png") no-repeat;
     background-size: contain;
 }
 

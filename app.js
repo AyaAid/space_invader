@@ -7,12 +7,23 @@ for(let i = 0; i < 320; i++) {
 }
 
 const board = document.querySelectorAll("#grade div");
-const ennemy = [
-    2,3,4,5,6,7,8,9,10,11,12,13,
-    18,19,20,21,22,23,24,25,26,27,28,29,
-    34,35,36,37,38,39,40,41,42,43,44,45
-];
-
+let ennemy = []
+let temp = 0;
+for (let i=0; i<46; i++) {
+    if (i<=1){
+        continue;
+    }
+    else if (i>=2){
+        ennemy.push(i);
+        temp++;
+        console.log(ennemy);
+        if (temp === 12){
+            i+=4;
+            temp = 0;
+            console.log(ennemy);
+        }
+    }
+}
 let pos_ship = 280;
 let invasoresId;
 
@@ -35,7 +46,7 @@ function tir(){
             board[pos].classList.remove("ennemy");
             board[pos].classList.add("boom");
             clearInterval(tir);
-            setTimeout(() => board[pos].classList.remove("boom"), 400);
+            setTimeout(() => board[pos].classList.remove("boom"), 700);
         }
     }, 100);
 }
