@@ -1,6 +1,6 @@
 body {
-    margin: 0;
-    background-image: "assets/background-black.png";
+
+    background-color: rgb(223, 73, 223);
 }
 
 img {
@@ -8,8 +8,8 @@ img {
 }
 
 #grade {
-    width: 450px;
-    height: 450px;
+    width: 700px;
+    height: 700px;
     border: 1px solid black;
     margin: auto;
     display: flex;
@@ -28,8 +28,8 @@ img {
 }
 
 #grade div {
-    width: 28px;
-    height: 22px;
+    width: 43px;
+    height: 30px;
     position: relative;
     
     

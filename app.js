@@ -3,6 +3,10 @@ const game = document.getElementById("game");
 let getDown = false;
 let direction = 1;
 let touch = [];
+let size = 16;
+let pos_ship = 280;
+let ennemyId;
+let points = 0;
 
 for(let i = 0; i < 320; i++) {
     let board = document.createElement("div");
@@ -28,18 +32,19 @@ for (let i=0; i<46; i++) {
     }
 }
 
-let size = 16;
-let pos_ship = 280;
-let ennemyId;
-
 board[pos_ship].classList.add("ship");
 
 ennemy.forEach(ennemy => {
     board[ennemy].classList.add("ennemy");
 });
 
+
 ennemyId = setInterval(happyDance, 300);
 
+ /*  ===================== FONCTION =========================== */
+
+
+ /* Fonction de tir de laser par le vaisseau */
 function tir(){
     let pos = pos_ship;
     let tir = setInterval(() => {
@@ -53,16 +58,20 @@ function tir(){
             clearInterval(tir);
             setTimeout(() => board[pos].classList.remove("boom"), 400);
             touch.push(ennemy.indexOf(pos));
-        }
+            points++;
+            game.innerHTML = points;
+        };
     }, 100);
 };
 
 document.addEventListener("keydown", (e) => {
     if(e.keyCode === 32){
         tir();
-    }
+    };
 });
 
+
+/* fonction de mouvement de la troupe ennemie */
 function happyDance() {
     const debut_ligne = ennemy[0] % 16 == 0;
     const fin_ligne = ennemy[ennemy.length - 1] % 16 == 15;
@@ -104,7 +113,7 @@ function happyDance() {
     }
 
     if (touch.length == ennemy.length) {
-        alert("Gagné ! test");
+        alert("Gagné !");
         clearInterval(ennemyId);
     }
 
@@ -112,6 +121,7 @@ function happyDance() {
 
 document.addEventListener("keydown", moverShip);
 
+/* fonction permettant au vaisseau de se deplacer */
 function moverShip(e) {
     board[pos_ship].classList.remove("ship");
 
