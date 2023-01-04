@@ -8,8 +8,8 @@ img {
 }
 
 #grade {
-    width: 700px;
-    height: 700px;
+    width: 690px;
+    height: 690px;
     border: 1px solid black;
     margin: auto;
     display: flex;
@@ -28,7 +28,7 @@ img {
 }
 
 #grade div {
-    width: 43.76px;
+    width: 43px;
     height: 30px;
     position: relative;
     
@@ -47,6 +47,11 @@ img {
 
 .tir {
     background: url("assets/shoot.png") no-repeat;
+    background-size: contain;
+}
+
+.tirEnnemy {
+    background: url("assets/shoot_ennemy.png") no-repeat;
     background-size: contain;
 }
 

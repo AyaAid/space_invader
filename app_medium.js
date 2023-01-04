@@ -8,13 +8,10 @@ let pos_ship = 280;
 let ennemyId;
 let points = 0;
 
-
-
 for(let i = 0; i < 320; i++) {
     let board = document.createElement("div");
     grade.appendChild(board);
 }
-
 
 const board = document.querySelectorAll("#grade div");
 let ennemy = []
@@ -40,7 +37,6 @@ board[pos_ship].classList.add("ship");
 ennemy.forEach(ennemy => {
     board[ennemy].classList.add("ennemy");
 });
-
 
 ennemyId = setInterval(happyDance, 300);
 
@@ -89,20 +85,16 @@ function tirEnnemy(){
             clearInterval(ennemyId);
             clearInterval(tirEnnemyId);
 
-            var audio = new Audio('assets/sound/explosion.mp3');
-            audio.play();
+            var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
+            shootEnnemy.volume = 0.2;
+            shootEnnemy.play()
             console.log("Perdu !");
         };
     }, 100);
 };
 
-
-
 /* si la fonction tir ennemy est utiliser alors lance un audio */
 var tirEnnemyId = setInterval(tirEnnemy, 1000);
-
-
-
 
 document.addEventListener("keydown", (e) => {
     if(e.keyCode === 32){
@@ -111,11 +103,8 @@ document.addEventListener("keydown", (e) => {
         var audio = new Audio('assets/sound/blaster.mp3');
         audio.volume = 0.2;
         audio.play();
-
-
     };
 });
-
 
 /* fonction de mouvement de la troupe ennemie */
 function happyDance() {
@@ -149,16 +138,18 @@ function happyDance() {
 
     if (ennemy[ennemy.length -1] > board.length - 16) {
         // son de l'explosion si le vaisseau est touché
-        var audio = new Audio('assets/sound/explosion.mp3');
-        audio.play();
+        var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
+        shootEnnemy.volume = 0.2;
+        shootEnnemy.play()
         console.log("Perdu !");
         clearInterval(ennemyId);
     }
 
     if (board[pos_ship].classList.contains("ennemy")) {
         // son de l'explosion si le vaisseau est touché
-        var audio = new Audio('assets/sound/explosion.mp3');
-        audio.play();
+        var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
+        shootEnnemy.volume = 0.2;
+        shootEnnemy.play()
         console.log("Perdu !");
         board[pos_ship].classList.add("boum");
         clearInterval(ennemyId);
@@ -169,7 +160,6 @@ function happyDance() {
         alert("Gagné !");
         clearInterval(ennemyId);
     }
-
 }
 
 document.addEventListener("keydown", moverShip);
