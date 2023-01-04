@@ -7,18 +7,16 @@
 
 body{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     background: #252839;
 }
 
 h2{
     position: relative;
-    font-size: 9vw;
+    font-size: 60px;
     color: #252839;
     -webkit-text-stroke: 0.3vw #383d52;
     text-transform: uppercase;
+
 }
 
 h2::before{
@@ -42,4 +40,67 @@ h2::before{
     70%,90%{
         width: 100%;
     }
+}
+
+#name{
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+
+.box{
+    width: 50%;
+    padding: 10%;
+    display: flex;
+    padding-top: 10%;
+    align-items: center;
+    position: absolute;
+    align-self: center;
+}
+
+.item{
+    height: 100px;
+    background-color: #383d52;
+    border: 1px solid #ddd;
+    flex: 1;
+    transition: .2s;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.item:hover{
+    flex: 3;
+    background: rgb(223, 73, 223);
+}
+
+.div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#align{
+    display: flex;
+}
+
+h3{
+    display: flex;
+    font-size: 40px;
+    color:rgb(223, 73, 223);
+    padding-top: 20%;
+    position: relative;
+    flex-direction: row;
+}
+
+.choose{
+    display: flex;
+    margin: 0;
+}
+
+.level{
+    padding-top: 20%;
+    padding-left: 25%;
+    display: flex;
+    flex-direction: column;
 }
