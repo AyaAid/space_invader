@@ -199,3 +199,6 @@ function moverShip(e) {
     }
     board[pos_ship].classList.add("ship");
 }
+var niveau = "hard"
+localStorage.setItem("niveau", niveau);
+

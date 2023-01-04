@@ -197,3 +197,10 @@ function moverShip(e) {
     }
     board[pos_ship].classList.add("ship");
 }
+
+/* sauvegarde dans un local storage, le niveau de jeu ici moyen */
+var niveau = "medium";
+localStorage.setItem("niveau", niveau);
+
+
+
