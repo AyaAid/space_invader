@@ -120,20 +120,38 @@ function happyDance() {
 }
 
 document.addEventListener("keydown", moverShip);
-
-/* fonction permettant au vaisseau de se deplacer */
+var hauteur = 0;
 function moverShip(e) {
+
+    const debut_ligne = ennemy[0] % 16 == 0;
+    const fin_ligne = ennemy[ennemy.length - 1] % 16 == 15;
+    
     board[pos_ship].classList.remove("ship");
 
-    if(e.keyCode == 37) { // Deplacement Gauche
-        if(pos_ship % size != 0) {
-            pos_ship--;
-        }
-    } else if (e.keyCode == 39) { // Deplacement Droite
-        if (pos_ship % size != size -1) {
-            pos_ship++;
+    if(e.keyCode == 37) { // Deplacement Gauche et ne pas dépasser la taille de la ligne
+        if (pos_ship % size !== 0) {
+            pos_ship -= 1;
         }
     }
+    else if (e.keyCode == 39) { // Deplacement Droite et ne pas dépasser la taille de la ligne
+        if (pos_ship % size < size - 1) {
+            pos_ship += 1;
+        }
+    }else if (e.keyCode == 40) {// deplacement bas si fleche du bas pressé sans dépasser la taille du tableau et sans dépasser la taille de la ligne
+        if (pos_ship + size < board.length) {
+            pos_ship += size;
+            hauteur--;
+            
+        }
+        console.log(hauteur);
+    }else if (e.keyCode == 38) {// deplacement haut si fleche du haut pressé sans dépasser la taille du tableau et sans dépasser la taille de la ligne et met un limite de 3 de hauteur
+        if (pos_ship - size >= 0 && hauteur < 2) {
+            pos_ship -= size;
+            hauteur++;
+            
+        }
+        console.log(hauteur);
 
+    }
     board[pos_ship].classList.add("ship");
 }
