@@ -67,6 +67,7 @@ h2::before{
     align-items: center;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .item:hover{
