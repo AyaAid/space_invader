@@ -8,10 +8,13 @@ let pos_ship = 280;
 let ennemyId;
 let points = 0;
 
+
+
 for(let i = 0; i < 320; i++) {
     let board = document.createElement("div");
     grade.appendChild(board);
 }
+
 
 const board = document.querySelectorAll("#grade div");
 let ennemy = []
@@ -43,9 +46,10 @@ ennemyId = setInterval(happyDance, 300);
 
  /*  ===================== FONCTION =========================== */
 
-
  /* Fonction de tir de laser par le vaisseau */
 function tir(){
+    
+    
     let pos = pos_ship;
     let tir = setInterval(() => {
         board[pos].classList.remove("tir");
@@ -60,13 +64,55 @@ function tir(){
             touch.push(ennemy.indexOf(pos));
             points++;
             game.innerHTML = points;
+            
+        };
+    }, 100);
+    
+};
+
+/* Fonction de tir de laser aléatoire par 1 ennemi choisi aléatoirement  seulement si il n'y a aucun autre ennemi devant lui*/
+
+function tirEnnemy(){
+    var audio = new Audio('assets/sound/explosion.mp3');
+
+    audio.play();
+    let ennemyTir = ennemy[Math.floor(Math.random() * ennemy.length)];
+    let tir = setInterval(() => {
+        board[ennemyTir].classList.remove("tirEnnemy");
+        ennemyTir += 16;
+        board[ennemyTir].classList.add("tirEnnemy");
+        if(board[ennemyTir].classList.contains("ship")){
+            board[ennemyTir].classList.remove("tirEnnemy");
+            board[ennemyTir].classList.add("boum");
+            clearInterval(tir);
+            setTimeout(() => board[ennemyTir].classList.remove("boum"), 400);
+            clearInterval(ennemyId);
+            clearInterval(tirEnnemyId);
+
+            var audio = new Audio('assets/sound/explosion.mp3');
+            audio.play();
+            console.log("Perdu !");
         };
     }, 100);
 };
 
+
+
+/* si la fonction tir ennemy est utiliser alors lance un audio */
+var tirEnnemyId = setInterval(tirEnnemy, 1000);
+
+
+
+
 document.addEventListener("keydown", (e) => {
     if(e.keyCode === 32){
         tir();
+        /* son de tir */
+        var audio = new Audio('assets/sound/blaster.mp3');
+        audio.volume = 0.2;
+        audio.play();
+
+
     };
 });
 
@@ -102,14 +148,21 @@ function happyDance() {
     });
 
     if (ennemy[ennemy.length -1] > board.length - 16) {
-        alert("Perdu !");
+        // son de l'explosion si le vaisseau est touché
+        var audio = new Audio('assets/sound/explosion.mp3');
+        audio.play();
+        console.log("Perdu !");
         clearInterval(ennemyId);
     }
 
     if (board[pos_ship].classList.contains("ennemy")) {
-        alert("Perdu !");
+        // son de l'explosion si le vaisseau est touché
+        var audio = new Audio('assets/sound/explosion.mp3');
+        audio.play();
+        console.log("Perdu !");
         board[pos_ship].classList.add("boum");
         clearInterval(ennemyId);
+
     }
 
     if (touch.length == ennemy.length) {
@@ -121,6 +174,8 @@ function happyDance() {
 
 document.addEventListener("keydown", moverShip);
 var hauteur = 0;
+
+/* Fonction de déplacement du vaisseau */
 function moverShip(e) {
 
     const debut_ligne = ennemy[0] % 16 == 0;
