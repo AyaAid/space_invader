@@ -5,15 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Invader</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" type="x-icon" href="assets/spaceship.png">
   </head>
   <body>
-    <audio src="\assets\sound\background_sound.mp3" autoplay loop></audio>
-    
-    <h2>Points : <span id="game"></span></h2>
-    <div class="background">
-    <div id="grade"></div>
+    <audio id="audio">
+      <source src="assets/sound/background_sound.mp3" type="audio/mp3" />
+    </audio>
+
+    <div class="flex_row">
+      <h2>Points : <span id="game"></span></h2>
+      <div class="background">
+      <div id="grade"></div>
+      </div>
+
+      <section class="container">
+        <div class="player">
+          <div class="cover">
+            <div class="play-btn">
+              <i class="far fa-play-circle fa-4x"></i>
+            </div>
+            <img src="assets/timetime.png" alt="cover"/>
+          </div>
+          <div>
+            <div class="progress">
+              <div></div>
+            </div>
+            <span class="percent">0%</span>
+          </div>
+          <h2>Time Time</h2>
+          <small>by Trei Degete (Squeezie, Krono & Myd)</small>
+        </div>
+
+        <div class="knob-container margin">
+          <div class="knob"></div>
+        </div>
+      </section>
+
     </div>
+
+    <script src="background_sound.js"></script>
     <script src="app_medium.js"></script>
   </body>
 </html>
