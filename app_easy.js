@@ -45,7 +45,6 @@ ennemyId = setInterval(happyDance, 300);
  /* Fonction de tir de laser par le vaisseau */
 function tir(){
     
-    
     let pos = pos_ship;
     let tir = setInterval(() => {
         board[pos].classList.remove("tir");
@@ -86,7 +85,7 @@ function tirEnnemy(){
             clearInterval(tirEnnemyId);
 
             var death = new Audio('assets/sound/explosion.mp3');
-            death.volume = 0.2;
+            death.volume = 0.5;
             death.play()
             console.log("Perdu !");
         };
@@ -125,7 +124,6 @@ function happyDance() {
 
     for(let i = 0; i < ennemy.length; i++) {
         ennemy[i] += getDown ? 16 : direction;
-
     }
 
     getDown = false;
@@ -139,7 +137,7 @@ function happyDance() {
     if (ennemy[ennemy.length -1] > board.length - 16) {
         // son de l'explosion si le vaisseau est touché
         var death = new Audio('assets/sound/explosion.mp3');
-        death.volume = 0.2;
+        death.volume = 0.5;
         death.play()
         console.log("Perdu !");
         clearInterval(ennemyId);
@@ -148,7 +146,7 @@ function happyDance() {
     if (board[pos_ship].classList.contains("ennemy")) {
         // son de l'explosion si le vaisseau est touché
         var death = new Audio('assets/sound/explosion.mp3');
-        death.volume = 0.2;
+        death.volume = 0.5;
         death.play()
         console.log("Perdu !");
         board[pos_ship].classList.add("boum");
