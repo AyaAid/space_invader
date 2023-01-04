@@ -69,9 +69,9 @@ function tir(){
 /* Fonction de tir de laser aléatoire par 1 ennemi choisi aléatoirement  seulement si il n'y a aucun autre ennemi devant lui*/
 
 function tirEnnemy(){
-    var audio = new Audio('assets/sound/explosion.mp3');
+    var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
+    shootEnnemy.play()
 
-    audio.play();
     let ennemyTir = ennemy[Math.floor(Math.random() * ennemy.length)];
     let tir = setInterval(() => {
         board[ennemyTir].classList.remove("tirEnnemy");
@@ -85,9 +85,9 @@ function tirEnnemy(){
             clearInterval(ennemyId);
             clearInterval(tirEnnemyId);
 
-            var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
-            shootEnnemy.volume = 0.2;
-            shootEnnemy.play()
+            var death = new Audio('assets/sound/explosion.mp3');
+            death.volume = 0.2;
+            death.play()
             console.log("Perdu !");
         };
     }, 100);
@@ -138,18 +138,18 @@ function happyDance() {
 
     if (ennemy[ennemy.length -1] > board.length - 16) {
         // son de l'explosion si le vaisseau est touché
-        var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
-        shootEnnemy.volume = 0.2;
-        shootEnnemy.play()
+        var death = new Audio('assets/sound/explosion.mp3');
+        death.volume = 0.2;
+        death.play()
         console.log("Perdu !");
         clearInterval(ennemyId);
     }
 
     if (board[pos_ship].classList.contains("ennemy")) {
         // son de l'explosion si le vaisseau est touché
-        var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
-        shootEnnemy.volume = 0.2;
-        shootEnnemy.play()
+        var death = new Audio('assets/sound/explosion.mp3');
+        death.volume = 0.2;
+        death.play()
         console.log("Perdu !");
         board[pos_ship].classList.add("boum");
         clearInterval(ennemyId);
