@@ -2,133 +2,129 @@ const knob = document.querySelector(".knob");
 const audio = document.querySelector("#audio");
 const prog = document.querySelector(".progress > div");
 const bar = document.querySelector(".progress");
-const play = document.querySelector(".play-btn");
 const percent = document.querySelector(".percent");
 
-// Set volume to mute initially
-audio.volume = 0.0;
+// Réglez le volume initialement sur muet
+audio.volume = 0.25;
 
-// Previous x,y values
+// Valeurs x,y précédentes
 let prevX = 0;
 let prevY = 0;
-// Final calculation volume
+// Volume du calcul final
 let vol = 0;
 
-// Get thee full bar width
+// Obtenir une largeur de barre complète
 barW = bar.clientWidth;
 
 function volumeKnob(e) {
-    // Get half of the knob width & height
+    // Obtenir la moitié de la largeur et de la hauteur du bouton
     const w = knob.clientWidth / 2;
     const h = knob.clientHeight / 2;
 
-    // Get the mouse coordinates
+    // Obtenir les coordonnées de la souris
     const x = e.clientX - knob.offsetLeft;
     const y = e.clientY - knob.offsetTop;
 
-    // Calculating delta values
+    // Calcul des valeurs delta
     const deltaX = w - x;
     const deltaY = h - y;
 
-    // Mouse position in radians
+    // Position de la souris en radians
     const rad = Math.atan2(deltaY, deltaX);
     // Convert to degress
     let deg = rad * (180 / Math.PI);
 
-    /*=== Tracking mouse in each quarter ===*/
+    /*=== Suivi de la souris dans chaque quartier ===*/
     
-    // Top right corner
+    // Le coin supérieur droit
     if (y < h && x > w) {
-        // Increasing
+        // En augmentant
         if (prevX <= x && prevY <= y) {
             vol++;
         }
-        // Decreasing
+        // Diminution
         else if (prevX >= x && prevY >= y) {
             vol--;
         }
     }
-    // Battam right corner
+    // Le coin inférieur droit
     else if (y > h && x > w) {
-        // Increasing
+        // En augmentant
         if (prevX >= x && prevY <= y) {
             vol++;
         }
-        // Decreasing
+        // Diminution
         else if (prevX <= x && prevY >= y) {
             vol--;
         }
     }
-    // Top left corner
+    // Coin supérieur gauche
     else if (y < h && x < w) {
-        // Increasing
+        // En augmentant
         if (prevX <= x && prevY >= y) {
             vol++;
         }
-        // Decreasing
+        // Diminution
         else if (prevX >= x && prevY <= y) {
             vol--;
         }
     }
-    // Battam left corner
+    // Le coin inférieur gauche
     else if (y > h && x < w) {
-        // Increasing
+        // En augmentant
         if (prevX >= x && prevY >= y) {
             vol++;
         }
-        // Decreasing
+        // Diminution
         else if (prevX <= x && prevY <= y) {
             vol--;
         }
     }
 
-    // Get percentage of progress width
+    // Obtenir le pourcentage de largeur de progression
     const percentage = Math.round((100 * vol) / barW);
      
 
-    // Restrict progress going below zero
+    // Restreindre la progression en dessous de zéro
     if (vol < 0) {
         vol = 0;
-    // Restrict progress going above 100%
+    // Restreindre la progression au-dessus de 100 %
     } else if (vol > barW) {
         vol = barW;
     } else {
-        //set progress width
+        // définir la largeur de progression
         prog.style.width = vol + "px";
-        // Set audio volume
+        // Régler le volume audio
         audio.volume = percentage / 100;
-        // Set the percent output
+        // Définir le pourcentage de sortie
         percent.innerText = percentage + "%";
     }
 
-    // Update values
+    // Mettre à jour les valeurs
     prevX = x;
     prevY = y;
 
     return deg;
 }
 
-// Play audio
-play.addEventListener("click", () =>{
-    audio.play();
-    play.style.display = "none";
-});
+// Lecture audio
+audio.play();
 
 // Rotation
 function rotate(e) {
-    // FInal calculations for the mouse position
+    // Calculs finaux pour la position de la souris
     const result = Math.floor(volumeKnob(e) - 80);
-    // Rotate knob with the final calculation
+    // Tourner le bouton avec le calcul final
     knob.style.transform = `rotate(${result}deg)`;
 }
 
-// Start rotations
+// Commencer les rotations
 function startRotation() {
     window.addEventListener("mousemove", rotate);
     window.addEventListener("mouseup", endRotation);
 }
 
-// End rotations
+// Fin des rotations
 function endRotation() {
     window.removeEventListener("mousemove", rotate);
 }
