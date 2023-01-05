@@ -18,3 +18,26 @@ function muted_music() {
         active_music = true;
     };
 };
+
+let couleur;
+
+document.addEventListener("click",(e)=>{
+    couleur = e.target.id;
+    var color;
+    if (couleur=="choix1"){
+        color = "red";
+        localStorage.setItem("color",color);
+    }
+    else if (couleur=="choix2"){
+        color = "blue";
+        localStorage.setItem("color",color);
+    }
+    else if (couleur=="choix3"){
+        color = "yellow";
+        localStorage.setItem("color",color);
+    }
+    else if (couleur=="choix4"){
+        color = "green";
+        localStorage.setItem("color",color);
+    }
+})
