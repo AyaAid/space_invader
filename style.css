@@ -273,6 +273,20 @@ img {
     box-shadow: 0px 0px 10px #ff3686;
 }
 
+.wrapper {
+    text-align: left;
+    width: 100%;
+    position: relative;
+}
+
+#gg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 35%;
+}
+
 /*=== Responsive Design ===*/
 
 @media screen and (max-width: 800px) {
