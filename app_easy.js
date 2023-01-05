@@ -71,7 +71,7 @@ function tir(){
 
 /* Fonction de tir de laser aléatoire par 1 ennemi choisi aléatoirement  seulement si il n'y a aucun autre ennemi devant lui*/
 
-function tirEnnemy(){
+/*function tirEnnemy(){
     var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
     shootEnnemy.play()
 
@@ -104,7 +104,8 @@ function tirEnnemy(){
 };
 
 /* si la fonction tir ennemy est utiliser alors lance un audio */
-var tirEnnemyId = setInterval(tirEnnemy, 1000);
+// var tirEnnemyId = setInterval(tirEnnemy, 1000);
+
 
 document.addEventListener("keydown", (e) => {
     if(e.keyCode === 32){
@@ -234,7 +235,7 @@ function muted_sound_effects() {
 };
 
 color = localStorage.getItem("color");
-console.log(color);
+
 
 if (color=="blue"){
     shoot = "shoot_blue";
