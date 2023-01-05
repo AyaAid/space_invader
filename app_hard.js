@@ -62,6 +62,10 @@ function tir(){
             game.innerHTML = points;
             
         };
+        if (pos < 16) {
+            clearInterval(tir);
+            setTimeout(() => board[pos].classList.remove("tir"), 400);
+        }
     }, 100);
     
 };
@@ -90,6 +94,10 @@ function tirEnnemy(){
             death.play()
             location.href = "perdre.html";
         };
+        if (ennemyTir > board.length - 16) {
+            clearInterval(tir);
+            setTimeout(() => board[ennemyTir].classList.remove("tirEnnemy"), 400);
+        }
     }, 100);
 };
 
