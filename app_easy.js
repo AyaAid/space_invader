@@ -231,3 +231,19 @@ function muted_sound_effects() {
         active_sound_effects = true;
     };
 };
+
+color = localStorage.getItem("color");
+console.log(color);
+
+if (color=="blue"){
+    shoot = "shoot_blue";
+}
+else if (color=="red"){
+    shoot = "shoot_red";
+}
+else if (color=="green"){
+    shoot = "shoot_green";
+}
+else if (color=="yellow"){
+    shoot = "shoot_yellow";
+}
