@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    background: #252839;
+    font-family: 'system-ui', sans-serif;
+}
+
+h2{
+    position: relative;
+    font-size: 30px;
+    color: #252839;
+    -webkit-text-stroke: 0.3vw #383d52;
+    text-transform: uppercase;
+
+}
+
+h2::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: rgb(223, 73, 223);
+    -webkit-text-stroke: 0vw #383d52;
+    border-right: 2px solid rgb(223, 73, 223);
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+#name{
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.typing-text{
+    display: flex;
+    font-size: 30px;
+    color:rgb(223, 73, 223);
+    padding-top: 20%;
+    position: relative;
+    flex-direction: row;
+}
+
+#gg{
+    padding-top:15%;
+    padding-left: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 400px;
+}
+
+.wrapper {
+    margin: 80px auto;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.button {
+    padding: 15px 50px;
+    margin: 10px 4px;
+    color: #ffffff;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button {
+    border: 1px solid transparent;
+    -webkit-transition: all 0.4s cubic-bezier(0.5, 0.24, 0, 1);
+    transition: all 0.4s cubic-bezier(0.5, 0.24, 0, 1);
+}
+.button::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: -1;
+    width: 0%;
+    height: 1px;
+    background: rgb(223, 73, 223);
+    box-shadow: inset 0px 0px 0px #383d52;
+    display: block;
+    -webkit-transition: all 0.4s cubic-bezier(0.5, 0.24, 0, 1);
+    transition: all 0.4s cubic-bezier(0.5, 0.24, 0, 1);
+}
+
+.button:hover::before {
+    width: 100%;
+}
+.button::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+    width: 0%;
+    height: 1px;
+    background: rgb(223, 73, 223);
+    -webkit-transition: all 0.4s cubic-bezier(0.7, 0.25, 0, 1);
+    transition: all 0.4s cubic-bezier(0.7, 0.25, 0, 1);
+}
+
+.button:hover::after {
+    width: 100%;
+}
+.button:hover {
+    border-left: 1px solid rgb(223, 73, 223);
+    border-right: 1px solid rgb(223, 73, 223);
+}

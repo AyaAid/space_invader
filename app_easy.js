@@ -87,9 +87,12 @@ function tirEnnemy(){
             clearInterval(ennemyId);
             clearInterval(tirEnnemyId);
 
-            var death = new Audio('assets/sound/explosion.mp3');
-            death.volume = 0.5;
-            death.play()
+            if (active_sound_effects) {
+                var death = new Audio('assets/sound/explosion.mp3');
+                death.volume = 0.5;
+                death.play()
+            }
+
             location.href="perdre.html";
         };
         if (ennemyTir > board.length - 16) {
@@ -106,9 +109,11 @@ document.addEventListener("keydown", (e) => {
     if(e.keyCode === 32){
         tir();
         /* son de tir */
-        var audio = new Audio('assets/sound/blaster.mp3');
-        audio.volume = 0.2;
-        audio.play();
+        if (active_sound_effects) {
+            var audio = new Audio('assets/sound/blaster.mp3');
+            audio.volume = 0.2;
+            audio.play();
+        }
     };
 });
 
@@ -143,18 +148,22 @@ function happyDance() {
 
     if (ennemy[ennemy.length -1] > board.length - 16) {
         // son de l'explosion si le vaisseau est touché
-        var death = new Audio('assets/sound/explosion.mp3');
-        death.volume = 0.5;
-        death.play()
+        if (active_sound_effects) {
+            var death = new Audio('assets/sound/explosion.mp3');
+            death.volume = 0.5;
+            death.play()
+        }
         location.href="perdre.html";
         clearInterval(ennemyId);
     }
 
     if (board[pos_ship].classList.contains("ennemy")) {
         // son de l'explosion si le vaisseau est touché
-        var death = new Audio('assets/sound/explosion.mp3');
-        death.volume = 0.5;
-        death.play()
+        if (active_sound_effects) {
+            var death = new Audio('assets/sound/explosion.mp3');
+            death.volume = 0.5;
+            death.play()
+        }
         location.href="perdre.html";
         board[pos_ship].classList.add("boum");
         clearInterval(ennemyId);
@@ -208,3 +217,16 @@ function moverShip(e) {
 
 var niveau = "easy";
 localStorage.setItem("niveau", niveau);
+
+
+
+let active_sound_effects;
+
+// Activer ou Désactiver le son des bruitages
+function muted_sound_effects() {
+    if(active_sound_effects) {
+        active_sound_effects = false;
+    } else {
+        active_sound_effects = true;
+    };
+};

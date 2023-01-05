@@ -131,3 +131,16 @@ function endRotation() {
 
 // Add event Listeners
 knob.addEventListener("mousedown", startRotation);
+
+
+
+let active_music;
+
+// Activer ou Désactiver le son de la musique
+function muted_music() {
+    if(active_music) {
+        active_music = false;
+    } else {
+        active_music = true;
+    };
+};
