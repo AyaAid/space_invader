@@ -47,11 +47,11 @@ function tir(){
     
     let pos = pos_ship;
     let tir = setInterval(() => {
-        board[pos].classList.remove("tir");
+        board[pos].classList.remove(shoot);
         pos -= 16;
-        board[pos].classList.add("tir");
+        board[pos].classList.add(shoot);
         if(board[pos].classList.contains("ennemy")){
-            board[pos].classList.remove("tir");
+            board[pos].classList.remove(shoot);
             board[pos].classList.remove("ennemy");
             board[pos].classList.add("boom");
             clearInterval(tir);
@@ -62,7 +62,7 @@ function tir(){
         };
         if (pos < 16) {
             clearInterval(tir);
-            setTimeout(() => board[pos].classList.remove("tir"), 400);
+            setTimeout(() => board[pos].classList.remove(shoot), 400);
         }
     }, 100);
     
@@ -231,3 +231,19 @@ function muted_sound_effects() {
         active_sound_effects = true;
     };
 };
+
+color = localStorage.getItem("color");
+console.log(color);
+
+if (color=="blue"){
+    shoot = "shoot_blue";
+}
+else if (color=="red"){
+    shoot = "shoot_red";
+}
+else if (color=="green"){
+    shoot = "shoot_green";
+}
+else if (color=="yellow"){
+    shoot = "shoot_yellow";
+}
