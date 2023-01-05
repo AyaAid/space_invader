@@ -215,6 +215,7 @@ function moverShip(e) {
     board[pos_ship].classList.add("ship");
 }
 
+/* sauvegarde dans un local storage, le niveau de jeu ici facile */
 var niveau = "easy";
 localStorage.setItem("niveau", niveau);
 

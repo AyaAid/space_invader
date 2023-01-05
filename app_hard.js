@@ -45,7 +45,6 @@ ennemyId = setInterval(happyDance, 300);
  /* Fonction de tir de laser par le vaisseau */
 function tir(){
     
-    
     let pos = pos_ship;
     let tir = setInterval(() => {
         board[pos].classList.remove("tir");
@@ -60,7 +59,6 @@ function tir(){
             touch.push(ennemy.indexOf(pos));
             points++;
             game.innerHTML = points;
-            
         };
         if (pos < 16) {
             clearInterval(tir);
@@ -89,10 +87,13 @@ function tirEnnemy(){
             clearInterval(ennemyId);
             clearInterval(tirEnnemyId);
 
-            var death = new Audio('assets/sound/explosion.mp3');
-            death.volume = 0.2;
-            death.play()
-            location.href = "perdre.html";
+            if (active_sound_effects) {
+                var death = new Audio('assets/sound/explosion.mp3');
+                death.volume = 0.5;
+                death.play()
+            }
+
+            location.href="perdre.html";
         };
         if (ennemyTir > board.length - 16) {
             clearInterval(tir);
@@ -108,9 +109,11 @@ document.addEventListener("keydown", (e) => {
     if(e.keyCode === 32){
         tir();
         /* son de tir */
-        var audio = new Audio('assets/sound/blaster.mp3');
-        audio.volume = 0.5;
-        audio.play();
+        if (active_sound_effects) {
+            var audio = new Audio('assets/sound/blaster.mp3');
+            audio.volume = 0.2;
+            audio.play();
+        }
     };
 });
 
@@ -145,26 +148,30 @@ function happyDance() {
 
     if (ennemy[ennemy.length -1] > board.length - 16) {
         // son de l'explosion si le vaisseau est touché
-        var death = new Audio('assets/sound/explosion.mp3');
-        death.volume = 0.5;
-        death.play()
-        location.href = "perdre.html";
+        if (active_sound_effects) {
+            var death = new Audio('assets/sound/explosion.mp3');
+            death.volume = 0.5;
+            death.play()
+        }
+        location.href="perdre.html";
         clearInterval(ennemyId);
     }
 
     if (board[pos_ship].classList.contains("ennemy")) {
         // son de l'explosion si le vaisseau est touché
-        var death = new Audio('assets/sound/explosion.mp3');
-        death.volume = 0.5;
-        death.play()
-        location.href = "perdre.html";
+        if (active_sound_effects) {
+            var death = new Audio('assets/sound/explosion.mp3');
+            death.volume = 0.5;
+            death.play()
+        }
+        location.href="perdre.html";
         board[pos_ship].classList.add("boum");
         clearInterval(ennemyId);
 
     }
 
     if (touch.length == ennemy.length) {
-        location.href = "gagner.html";
+        location.href="gagner.html";
         clearInterval(ennemyId);
     }
 }
@@ -207,6 +214,20 @@ function moverShip(e) {
     }
     board[pos_ship].classList.add("ship");
 }
-var niveau = "hard"
+
+/* sauvegarde dans un local storage, le niveau de jeu ici difficile */
+var niveau = "hard";
 localStorage.setItem("niveau", niveau);
 
+
+
+let active_sound_effects;
+
+// Activer ou Désactiver le son des bruitages
+function muted_sound_effects() {
+    if(active_sound_effects) {
+        active_sound_effects = false;
+    } else {
+        active_sound_effects = true;
+    };
+};
