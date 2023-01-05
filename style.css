@@ -39,7 +39,14 @@ img {
     position: relative;
 }
 
-
+.text_soundoff {
+    display: flex;
+    font-size: 40px;
+    color:rgb(223, 73, 223);
+    padding-top: 20%;
+    position: relative;
+    flex-direction: row;
+}
 
 .flex_row {
     display: flex;
