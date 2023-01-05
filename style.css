@@ -1,5 +1,6 @@
 body {
     background: #252839;
+    color: white;
     margin: 0;
     font-family: 'system-ui', sans-serif;
 }
@@ -45,9 +46,14 @@ img {
 }
 
 .margin {
-    margin-left: 75px;
+    margin-left: 5px;
+    margin-top: -185px;
 }
 
+.text_infos {
+    margin-top: 450px;
+    margin-right: 50px;
+}
 
 .ship {
     background: url("assets/spaceship.png") no-repeat;
@@ -92,6 +98,8 @@ img {
     border-radius: 8px;
     padding: 1em;
     box-shadow: 0 0 15px #1f1f1f;
+    margin-left: -500px;
+    margin-top: -185px;
 }
 
 .player span, .player small {
