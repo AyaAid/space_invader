@@ -131,13 +131,25 @@ img {
     background-size: contain;
 }
 
-.tir {
-    background: url("assets/shoot.png") no-repeat;
+.shoot_red {
+    background: url("assets/shoot_red.png") no-repeat;
+    background-size: contain;
+}
+.shoot_blue {
+    background: url("assets/shoot_blue.png") no-repeat;
+    background-size: contain;
+}
+.shoot_yellow {
+    background: url("assets/shoot_yellow.png") no-repeat;
+    background-size: contain;
+}
+.shoot_green {
+    background: url("assets/shoot_green.png") no-repeat;
     background-size: contain;
 }
 
 .tirEnnemy {
-    background: url("assets/shoot_ennemy.png") no-repeat;
+    background: url("assets/shoot_purple.png") no-repeat;
     background-size: contain;
 }
 
