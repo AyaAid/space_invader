@@ -60,6 +60,7 @@ function tir(){
             touch.push(ennemy.indexOf(pos));
             points++;
             game.innerHTML = points;
+            localStorage.setItem("points", points);
         };
         if (pos < 16) {
             clearInterval(tir);
