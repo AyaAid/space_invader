@@ -88,7 +88,7 @@ function tirEnnemy(){
             var death = new Audio('assets/sound/explosion.mp3');
             death.volume = 0.2;
             death.play()
-            console.log("Perdu !");
+            location.href = "perdre.html";
         };
     }, 100);
 };
@@ -140,7 +140,7 @@ function happyDance() {
         var death = new Audio('assets/sound/explosion.mp3');
         death.volume = 0.5;
         death.play()
-        console.log("Perdu !");
+        location.href = "perdre.html";
         clearInterval(ennemyId);
     }
 
@@ -149,14 +149,14 @@ function happyDance() {
         var death = new Audio('assets/sound/explosion.mp3');
         death.volume = 0.5;
         death.play()
-        console.log("Perdu !");
+        location.href = "perdre.html";
         board[pos_ship].classList.add("boum");
         clearInterval(ennemyId);
 
     }
 
     if (touch.length == ennemy.length) {
-        alert("Gagné !");
+        location.href = "gagner.html";
         clearInterval(ennemyId);
     }
 }

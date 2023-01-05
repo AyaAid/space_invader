@@ -1,5 +1,6 @@
-var level = localStorage.getItem("niveau");
+var level = localStorage.getItem("niveau"); // recupere le niveau de la partie jouer précédement
 
+// en fonction de la derniere partie, renvoie sur une partie du meme niveau avec le bouton rejouer
 function rejouer(){
     if(level === "easy"){
         location.href="app_easy.html";
