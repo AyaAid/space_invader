@@ -7,6 +7,7 @@ let size = 16;
 let pos_ship = 280;
 let ennemyId;
 let points = 0;
+let shoot;
 
 for(let i = 0; i < 320; i++) {
     let board = document.createElement("div");
