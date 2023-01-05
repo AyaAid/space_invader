@@ -70,39 +70,36 @@ function tir(){
     
 };
 
-/* Fonction de tir de laser aléatoire par 1 ennemi choisi aléatoirement  seulement si il n'y a aucun autre ennemi devant lui*/
+/* Fonction de tir de laser aléatoire par 1 ennemi choisi aléatoirement  seulement si il n'y a aucun autre ennemi devant lui */
+
 
 function tirEnnemy(){
+
     var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
     shootEnnemy.play()
-
-    let ennemyTir = ennemy[Math.floor(Math.random() * ennemy.length)];
-    let tir = setInterval(() => {
-        board[ennemyTir].classList.remove("tirEnnemy");
-        ennemyTir += 16;
-        board[ennemyTir].classList.add("tirEnnemy");
-        if(board[ennemyTir].classList.contains("ship")){
-            board[ennemyTir].classList.remove("tirEnnemy");
-            board[ennemyTir].classList.add("boum");
-            clearInterval(tir);
-            setTimeout(() => board[ennemyTir].classList.remove("boum"), 400);
-            clearInterval(ennemyId);
-            clearInterval(tirEnnemyId);
-
-            if (active_sound_effects) {
-                var death = new Audio('assets/sound/explosion.mp3');
-                death.volume = 0.5;
-                death.play()
+    
+    let ennemyShoot = Math.floor(Math.random() * ennemy.length);
+    let pos = ennemy[ennemyShoot];
+    if (board[pos].classList.contains("ennemy")){
+        let tir = setInterval(() => {
+            board[pos].classList.remove("tirEnnemy");
+            pos += 16;
+            board[pos].classList.add("tirEnnemy");
+            if(board[pos].classList.contains("ship")){
+                board[pos].classList.remove("tirEnnemy");
+                board[pos].classList.add("boum");
+                clearInterval(tir);
+                setTimeout(() => board[pos].classList.remove("boum"), 400);
+                location.href="perdre.html";
+            };
+            if (pos > 304) {
+                clearInterval(tir);
+                setTimeout(() => board[pos].classList.remove("tirEnnemy"), 400);
             }
+        }, 100);
+    }
+}
 
-            location.href="perdre.html";
-        };
-        if (ennemyTir > board.length - 16) {
-            clearInterval(tir);
-            setTimeout(() => board[ennemyTir].classList.remove("tirEnnemy"), 400);
-        }
-    }, 100);
-};
 
 /* si la fonction tir ennemy est utiliser alors lance un audio */
 var tirEnnemyId = setInterval(tirEnnemy, 1000);
