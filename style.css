@@ -46,15 +46,23 @@ img {
     justify-content: space-around;
     align-items: center;
 }
-
+.flex_column2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0%;
+    padding-top: 5%;
+}
 .margin {
     margin-left: 5px;
     margin-top: -185px;
+    padding-top: 20%;
+    padding-left: 10%;
 }
 
 .text_infos {
-    margin-top: 450px;
-    margin-right: 50px;
+    padding-bottom: 50%;
+    padding-right: 80%;
 }
 
 .button_infos{
@@ -163,9 +171,8 @@ img {
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    
+    align-items: center;  
+    margin-right: 25%;
 }
 
 .player {
@@ -176,8 +183,7 @@ img {
     border-radius: 8px;
     padding: 1em;
     box-shadow: 0 0 15px #1f1f1f;
-    margin-left: -500px;
-    margin-top: -185px;
+    margin-right: 5%;
 }
 
 .player span, .player small {
@@ -206,10 +212,13 @@ img {
     box-shadow: 0px -20px 20px #757575, 0px 20px 35px #111111, inset 0px 5px 6px #979797, inset 0px -5px 6px #242424;
 }
 
+
+
 .knob {
     width: 10em;
     height: 10em;
     position: relative;
+
 }
 
 .knob::before,
