@@ -152,3 +152,7 @@ img{
     border-left: 1px solid rgb(223, 73, 223);
     border-right: 1px solid rgb(223, 73, 223);
   }
+
+  a{
+    cursor: pointer;
+  }
