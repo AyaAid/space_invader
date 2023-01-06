@@ -1,7 +1,10 @@
-const points = document.getElementById("points");
+
 var level = localStorage.getItem("niveau"); // recupere le niveau de la partie jouer précédement
 var point = localStorage.getItem("points");
+const user = document.getElementById("user");
+var utilisateur = localStorage.getItem("input");
 
+document.getElementById("user").textContent = utilisateur;
 document.getElementById("points").textContent = point;
 // en fonction de la derniere partie, renvoie sur une partie du meme niveau avec le bouton rejouer
 function rejouer(){

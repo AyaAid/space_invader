@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invader</title>
+    <link rel="stylesheet" href="inscription.css">
+    <link rel="shortcut icon" type="x-icon" href="assets/spaceship.png">
+  </head>
+  <body>
+    <div id="name">
+        <h2 data-text="Space Invader">Space <br/>Invader</h2>
+    </div>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form>
+          <div class="user-box">
+            <input type="text" name="" required="" id="in">
+            <label>Username</label>
+          </div>
+          
+          <a href="accueil.html" onclick="getValue();">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </a>
+        </form>
+      </div>
+      <script>
+        function getValue() {
+    // Sélectionner l'élément input et récupérer sa valeur
+            var input = document.getElementById("in").value;
+            localStorage.setItem("input", input)
+
+        }
+      </script>
+</body>
+</html>
