@@ -192,23 +192,27 @@ function moverShip(e) {
     
     board[pos_ship].classList.remove("ship");
 
-    if(e.keyCode == 37) { // Deplacement Gauche et ne pas dépasser la taille de la ligne
+    if(e.keyCode == 37) {
+        event.preventDefault(); // Deplacement Gauche et ne pas dépasser la taille de la ligne
         if (pos_ship % size !== 0) {
             pos_ship -= 1;
         }
     }
-    else if (e.keyCode == 39) { // Deplacement Droite et ne pas dépasser la taille de la ligne
+    else if (e.keyCode == 39) {
+        event.preventDefault(); // Deplacement Droite et ne pas dépasser la taille de la ligne
         if (pos_ship % size < size - 1) {
             pos_ship += 1;
         }
-    }else if (e.keyCode == 40) {// deplacement bas si fleche du bas pressé sans dépasser la taille du tableau et sans dépasser la taille de la ligne
+    }else if (e.keyCode == 40) {
+        event.preventDefault();// deplacement bas si fleche du bas pressé sans dépasser la taille du tableau et sans dépasser la taille de la ligne
         if (pos_ship + size < board.length) {
             pos_ship += size;
             hauteur--;
             
         }
         console.log(hauteur);
-    }else if (e.keyCode == 38) {// deplacement haut si fleche du haut pressé sans dépasser la taille du tableau et sans dépasser la taille de la ligne et met un limite de 3 de hauteur
+    }else if (e.keyCode == 38) {
+        event.preventDefault();// deplacement haut si fleche du haut pressé sans dépasser la taille du tableau et sans dépasser la taille de la ligne et met un limite de 3 de hauteur
         if (pos_ship - size >= 0 && hauteur < 2) {
             pos_ship -= size;
             hauteur++;
