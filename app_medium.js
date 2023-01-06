@@ -61,6 +61,7 @@ function tir(){
             points++;
             game.innerHTML = points;
             localStorage.setItem("points", points);
+            console.log(points)
         };
         if (pos < 16) {
             clearInterval(tir);
