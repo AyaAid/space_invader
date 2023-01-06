@@ -76,7 +76,9 @@ function tir(){
 function tirEnnemy(){
 
     var shootEnnemy = new Audio('assets/sound/shootEnnemy.mp3');
-    shootEnnemy.play()
+    if (active_sound_effects) {
+        shootEnnemy.play()
+    }
     
     let ennemyShoot = Math.floor(Math.random() * ennemy.length);
     let pos = ennemy[ennemyShoot];
