@@ -1,4 +1,4 @@
-
+const points = document.getElementById("points");
 var level = localStorage.getItem("niveau"); // recupere le niveau de la partie jouer précédement
 var point = localStorage.getItem("points");
 const user = document.getElementById("user");

@@ -104,6 +104,7 @@ var tirEnnemyId = setInterval(tirEnnemy, 1000);
 document.addEventListener("keydown", (e) => {
     if(e.keyCode === 32){
         tir();
+        event.preventDefault();
         /* son de tir */
         if (active_sound_effects) {
             var audio = new Audio('assets/sound/blaster.mp3');
