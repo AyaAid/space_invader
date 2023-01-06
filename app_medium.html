@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Invader</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" type="x-icon" href="assets/spaceship.png">
   </head>
   <body>
@@ -37,11 +36,22 @@
           <div class="knob"></div>
         </div>
       </section>
-      <h2 class="text_infos">Points : <span id="game"></span><br/>User : <span id="user"></span> </h2>
+
+      <div id="gg">
+        <div class="font">
+            <div class="typing-text text_soundoff">COUPER LE SON</div>
+        </div>
+        
+        <div class="wrapper">
+            <a onclick="muted_sound_effects();" class="button">Bruitage</a>
+        </div>
       </div>
 
-    </div>
-    
+      <h2 class="text_infos">Points : <span id="game"></span><br/>User : <span id="user"></span> </h2>
+      
+      </div>
+
+    </div>     
 
     <script src="background_sound.js"></script>
     <script src="app_medium.js"></script>

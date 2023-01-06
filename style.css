@@ -179,8 +179,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;  
-    margin-right: 25%;
-    padding-top: 23%;
+    margin-right: 25%;   
+    padding-top: 40%;
     
 }
 
@@ -276,9 +276,10 @@ img {
 }
 
 .wrapper {
-    text-align: left;
+    text-align: center;
     width: 100%;
     position: relative;
+
 }
 
 #gg{
